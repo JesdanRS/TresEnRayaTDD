@@ -7,6 +7,6 @@ public class TableroTest {
 
     @Test
     void testColocarFichaEnPosicionValida() {
-        // Lógica de la prueba aquí
+        
     }
 }
