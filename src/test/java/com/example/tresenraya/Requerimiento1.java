@@ -19,7 +19,7 @@ public class Requerimiento1 {
         
         // Act & Assert
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            tablero.colocarFicha(2, 0, Ficha.X); //Para fallar se cambia el valor de X a 3
+            tablero.colocarFicha(3, 0, Ficha.X); //Para fallar se cambia el valor de X a 3
         });
         
         String mensajeEsperado = "Posición X fuera del tablero";
