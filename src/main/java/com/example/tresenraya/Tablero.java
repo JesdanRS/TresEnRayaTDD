@@ -29,6 +29,10 @@ public class Tablero {
             throw new IllegalArgumentException("Posición X fuera del tablero");
         }
         
+        if (y < 0 || y >= TAMANIO) {
+            throw new IllegalArgumentException("Posición Y fuera del tablero");
+        }
+        
         // Aquí se implementarán las demás validaciones en futuras iteraciones
         
         casillas[x][y] = ficha;
