@@ -38,7 +38,7 @@ public class PIezasTest {
         
         // Act & Assert
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            tablero.colocarFicha(0, 2, Ficha.X); //Para fallar se cambia el valor de X a 2
+            tablero.colocarFicha(0, 3, Ficha.X); //Para fallar se cambia el valor de X a 2
         });
         
         String mensajeEsperado = "Posición Y fuera del tablero";
