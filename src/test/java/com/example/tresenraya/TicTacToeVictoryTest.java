@@ -44,7 +44,7 @@ public class TicTacToeVictoryTest {
         // Act
         String result = checkVictory(board);
         // Assert
-        assertEquals("None", result);
+        assertEquals("None", result, "Se esperaba 'None' como resultado pero se obtuvo '" + result + "'");
     }
 
     @Test
@@ -58,7 +58,7 @@ public class TicTacToeVictoryTest {
         // Act
         String result = checkVictory(board);
         // Assert
-        assertEquals("X", result);
+        assertEquals("X", result, "Se esperaba 'X' como ganador pero se obtuvo '" + result + "'");
     }
 
     @Test
@@ -72,7 +72,7 @@ public class TicTacToeVictoryTest {
         // Act
         String result = checkVictory(board);
         // Assert
-        assertEquals("O", result);
+        assertEquals("O", result, "Se esperaba 'O' como ganador pero se obtuvo '" + result + "'");
     }
 
     @Test
@@ -86,6 +86,6 @@ public class TicTacToeVictoryTest {
         // Act
         String result = checkVictory(board);
         // Assert
-        assertEquals("X", result);
+        assertEquals("X", result, "Se esperaba 'X' como ganador pero se obtuvo '" + result + "'");
     }
 }
