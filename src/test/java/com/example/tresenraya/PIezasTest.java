@@ -58,7 +58,7 @@ public class PIezasTest {
         
         // Act & Assert
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            tablero.colocarFicha(1, 2, Ficha.O); // Para hacer fallar el test, se puede modificar las coordenadas a (0, 0)
+            tablero.colocarFicha(1, 1, Ficha.O); // Para hacer fallar el test, se puede modificar las coordenadas a (0, 0)
         });
         
         String mensajeEsperado = "Posición ya ocupada";
