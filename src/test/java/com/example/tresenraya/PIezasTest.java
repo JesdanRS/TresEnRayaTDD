@@ -46,4 +46,24 @@ public class PIezasTest {
         
         assertTrue(mensajeActual.contains(mensajeEsperado));
     }
+    
+    /**
+     * Prueba 3: Cuando una pieza esté en un lugar ya ocupado, se debe lanzar una excepción
+     */
+    @Test
+    void testPiezaEnLugarOcupado() {
+        // Arrange
+        Tablero tablero = new Tablero();
+        tablero.colocarFicha(1, 1, Ficha.X); // Primero colocamos una ficha
+        
+        // Act & Assert
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            tablero.colocarFicha(1, 2, Ficha.O); // Para hacer fallar el test, se puede modificar las coordenadas a (0, 0)
+        });
+        
+        String mensajeEsperado = "Posición ya ocupada";
+        String mensajeActual = exception.getMessage();
+        
+        assertTrue(mensajeActual.contains(mensajeEsperado));
+    }
 }

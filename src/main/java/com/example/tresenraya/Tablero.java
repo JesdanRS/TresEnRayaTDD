@@ -22,7 +22,7 @@ public class Tablero {
      * @param x Coordenada X (0-2)
      * @param y Coordenada Y (0-2)
      * @param ficha Tipo de ficha a colocar
-     * @throws IllegalArgumentException si la posición está fuera del tablero
+     * @throws IllegalArgumentException si la posición está fuera del tablero o ya está ocupada
      */
     public void colocarFicha(int x, int y, Ficha ficha) {
         if (x < 0 || x >= TAMANIO) {
@@ -33,7 +33,10 @@ public class Tablero {
             throw new IllegalArgumentException("Posición Y fuera del tablero");
         }
         
-        // Aquí se implementarán las demás validaciones en futuras iteraciones
+        // Verificar si la posición ya está ocupada
+        if (casillas[x][y] != Ficha.VACIA) {
+            throw new IllegalArgumentException("Posición ya ocupada");
+        }
         
         casillas[x][y] = ficha;
     }
