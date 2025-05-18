@@ -4,77 +4,67 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
-public class TicTacToeVictoryTest {
+class TicTacToeVictoryTest  {
+
     private int[][] tablero;
-    private int tamanoTablero = 3; // Ejemplo con un tablero de 3x3
+    private int tamanoTablero = 3;
+    private JuegoLogica juegoLogica;
 
     @BeforeEach
     void setUp() {
         tablero = new int[tamanoTablero][tamanoTablero];
+        juegoLogica = new JuegoLogica();
     }
 
     @Test
     void testNoHayGanadorCuandoNoSeCumpleLaCondicion() {
         // Actuar
-        // Colocar algunas fichas en el tablero, por ejemplo, en la diagonal
         tablero[0][0] = 1; // Jugador 1
         tablero[1][1] = 1; // Jugador 1
-        tablero[2][2] = 1; // Jugador 1
 
         // Verificar
-        assertFalse(hayGanador(tablero, 2), "Debería regresar false si no hay ganador");
-        assertFalse(hayGanador(tablero, 1), "Debería regresar false si no hay ganador");
+        assertFalse(juegoLogica.hayGanador(tablero, 1), "Debería regresar false si no hay ganador");
+        assertFalse(juegoLogica.hayGanador(tablero, 2), "Debería regresar false si no hay ganador");
     }
 
     @Test
     void testJugadorGanaConLineaHorizontal() {
-        // Actuar: Llenar una fila completa con las fichas del jugador 1
         for (int i = 0; i < tamanoTablero; i++) {
             tablero[0][i] = 1; // Jugador 1 ocupa toda la primera fila
         }
-
-        // Verificar
-        assertTrue(hayGanador(tablero, 2), "El jugador 1 debería ganar con una fila horizontal completa");
-        assertFalse(hayGanador(tablero, 1), "El jugador 2 no debería ganar");
+        assertTrue(juegoLogica.hayGanador(tablero, 1));
+        assertFalse(juegoLogica.hayGanador(tablero, 2));
     }
 
     @Test
     void testJugadorGanaConLineaVertical() {
-        // Actuar: Llenar una columna completa con las fichas del jugador 1
         for (int i = 0; i < tamanoTablero; i++) {
             tablero[i][0] = 1; // Jugador 1 ocupa toda la primera columna
         }
-
-        // Verificar
-        assertTrue(hayGanador(tablero, 1), "El jugador 1 debería ganar con una columna vertical completa");
-        assertFalse(hayGanador(tablero, 2), "El jugador 2 no debería ganar");
+        assertTrue(juegoLogica.hayGanador(tablero, 1));
+        assertFalse(juegoLogica.hayGanador(tablero, 2));
     }
 
-    
     @Test
     void testJugadorGanaConDiagonalPrincipal() {
-        // Actuar: Llenar la diagonal principal con las fichas del jugador 1
         for (int i = 0; i < tamanoTablero; i++) {
             tablero[i][i] = 1; // Jugador 1 ocupa toda la diagonal principal
         }
-
-        // Verificar
-        assertTrue(hayGanador(tablero, 1), "El jugador 1 debería ganar con la diagonal principal completa");
-        assertFalse(hayGanador(tablero, 2), "El jugador 2 no debería ganar");
+        assertTrue(juegoLogica.hayGanador(tablero, 1));
+        assertFalse(juegoLogica.hayGanador(tablero, 2));
     }
 
     @Test
     void testJugadorGanaConDiagonalSecundaria() {
-        // Actuar: Llenar la diagonal secundaria con las fichas del jugador 1
         for (int i = 0; i < tamanoTablero; i++) {
             tablero[i][tamanoTablero - 1 - i] = 1; // Jugador 1 ocupa toda la diagonal secundaria
         }
-
-        // Verificar
-        assertTrue(hayGanador(tablero, 1), "El jugador 1 debería ganar con la diagonal secundaria completa");
-        assertFalse(hayGanador(tablero, 2), "El jugador 2 no debería ganar");
+        assertTrue(juegoLogica.hayGanador(tablero, 1));
+        assertFalse(juegoLogica.hayGanador(tablero, 2));
     }
 
+    /* 
+    ! CODIGO MINIMO PARA QUE PASEN LAS PRUEBAS
     private boolean hayGanador(int[][] tablero, int jugador) {
         int tamano = tablero.length;
 
@@ -94,4 +84,5 @@ public class TicTacToeVictoryTest {
 
         return false;
     }
+    */
 }
