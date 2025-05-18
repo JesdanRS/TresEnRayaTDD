@@ -9,17 +9,17 @@ public class Turnos {
     // Modificar el método para que siempre retorne Ficha.X
     public Ficha obtenerJugadorActual() {
         // Implementación correcta que hace pasar todos los tests:
-       /*  Ficha jugadorARetornar = jugadorActual;
+        Ficha jugadorARetornar = jugadorActual;
         jugadorActual = (jugadorActual == Ficha.X) ? Ficha.O : Ficha.X;
-        return jugadorARetornar;*/
+        return jugadorARetornar;
 
         // Implementación que hace fallar el segundo test:
         // return Ficha.X;
 
         // Implementación que hace fallar el tercer test:
-        if (jugadorActual == Ficha.X) {
+        /*if (jugadorActual == Ficha.X) {
             jugadorActual = Ficha.O;
         }
-        return jugadorActual;
+        return jugadorActual;*/
     }
 }
