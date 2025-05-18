@@ -5,6 +5,13 @@ on:
     branches: [ main, Requerimientos3, MergeBranch ]
   pull_request:
     branches: [ main, Requerimientos3, MergeBranch ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  repository-projects: write
 
 jobs:
   build:
