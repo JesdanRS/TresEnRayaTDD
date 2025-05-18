@@ -2,90 +2,96 @@ package com.example.tresenraya;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 public class TicTacToeVictoryTest {
-    // Stub de la función checkVictory para la fase Red
-    private String checkVictory(char[][] board) {
-        // Verificar líneas horizontales
-        for (int i = 0; i < 3; i++) {
-            if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ') {
-                return String.valueOf(board[i][0]);
+    private int[][] tablero;
+    private int tamanoTablero = 3; // Ejemplo con un tablero de 3x3
+
+    @BeforeEach
+    void setUp() {
+        tablero = new int[tamanoTablero][tamanoTablero];
+    }
+
+    @Test
+    void testNoHayGanadorCuandoNoSeCumpleLaCondicion() {
+        // Actuar
+        // Colocar algunas fichas en el tablero, por ejemplo, en la diagonal
+        tablero[0][0] = 1; // Jugador 1
+        tablero[1][1] = 1; // Jugador 1
+        tablero[2][2] = 1; // Jugador 1
+
+        // Verificar
+        assertFalse(hayGanador(tablero, 2), "Debería regresar false si no hay ganador");
+        assertFalse(hayGanador(tablero, 1), "Debería regresar false si no hay ganador");
+    }
+
+    @Test
+    void testJugadorGanaConLineaHorizontal() {
+        // Actuar: Llenar una fila completa con las fichas del jugador 1
+        for (int i = 0; i < tamanoTablero; i++) {
+            tablero[0][i] = 1; // Jugador 1 ocupa toda la primera fila
+        }
+
+        // Verificar
+        assertTrue(hayGanador(tablero, 2), "El jugador 1 debería ganar con una fila horizontal completa");
+        assertFalse(hayGanador(tablero, 1), "El jugador 2 no debería ganar");
+    }
+
+    @Test
+    void testJugadorGanaConLineaVertical() {
+        // Actuar: Llenar una columna completa con las fichas del jugador 1
+        for (int i = 0; i < tamanoTablero; i++) {
+            tablero[i][0] = 1; // Jugador 1 ocupa toda la primera columna
+        }
+
+        // Verificar
+        assertTrue(hayGanador(tablero, 1), "El jugador 1 debería ganar con una columna vertical completa");
+        assertFalse(hayGanador(tablero, 2), "El jugador 2 no debería ganar");
+    }
+
+    
+    @Test
+    void testJugadorGanaConDiagonalPrincipal() {
+        // Actuar: Llenar la diagonal principal con las fichas del jugador 1
+        for (int i = 0; i < tamanoTablero; i++) {
+            tablero[i][i] = 1; // Jugador 1 ocupa toda la diagonal principal
+        }
+
+        // Verificar
+        assertTrue(hayGanador(tablero, 1), "El jugador 1 debería ganar con la diagonal principal completa");
+        assertFalse(hayGanador(tablero, 2), "El jugador 2 no debería ganar");
+    }
+
+    @Test
+    void testJugadorGanaConDiagonalSecundaria() {
+        // Actuar: Llenar la diagonal secundaria con las fichas del jugador 1
+        for (int i = 0; i < tamanoTablero; i++) {
+            tablero[i][tamanoTablero - 1 - i] = 1; // Jugador 1 ocupa toda la diagonal secundaria
+        }
+
+        // Verificar
+        assertTrue(hayGanador(tablero, 1), "El jugador 1 debería ganar con la diagonal secundaria completa");
+        assertFalse(hayGanador(tablero, 2), "El jugador 2 no debería ganar");
+    }
+
+    private boolean hayGanador(int[][] tablero, int jugador) {
+        int tamano = tablero.length;
+
+        // Verificar filas y columnas
+        for (int i = 0; i < tamano; i++) {
+            if ((tablero[i][0] == jugador && tablero[i][1] == jugador && tablero[i][2] == jugador) ||
+                (tablero[0][i] == jugador && tablero[1][i] == jugador && tablero[2][i] == jugador)) {
+                return true;
             }
         }
 
-        // Verificar líneas verticales
-        for (int j = 0; j < 3; j++) {
-            if (board[0][j] == board[1][j] && board[1][j] == board[2][j] && board[0][j] != ' ') {
-                return String.valueOf(board[0][j]);
-            }
+        // Verificar diagonales
+        if ((tablero[0][0] == jugador && tablero[1][1] == jugador && tablero[2][2] == jugador) ||
+            (tablero[0][2] == jugador && tablero[1][1] == jugador && tablero[2][0] == jugador)) {
+            return true;
         }
 
-        // Verificar diagonal principal
-        if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ') {
-            return String.valueOf(board[0][0]);
-        }
-
-        // Verificar diagonal secundaria
-        if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ') {
-            return String.valueOf(board[0][2]);
-        }
-
-        return "None";
-    }
-
-    @Test
-    void sinGanadorCuandoNoHayLineaCompleta() {
-        // Arrange
-        char[][] board = {
-            {'X', 'O', 'X'},
-            {'O', 'X', 'O'},
-            {'O', 'X', 'O'}
-        };
-        // Act
-        String result = checkVictory(board);
-        // Assert
-        assertEquals("None", result, "Se esperaba 'None' como resultado pero se obtuvo '" + result + "'");
-    }
-
-    @Test
-    void jugadorGanaConLineaHorizontal() {
-        // Arrange
-        char[][] board = {
-            {'X', 'X', 'X'},
-            {'O', ' ', 'O'},
-            {' ', 'O', 'X'}
-        };
-        // Act
-        String result = checkVictory(board);
-        // Assert
-        assertEquals("X", result, "Se esperaba 'X' como ganador pero se obtuvo '" + result + "'");
-    }
-
-    @Test
-    void jugadorGanaConLineaVertical() {
-        // Arrange
-        char[][] board = {
-            {'O', 'X', ' '},
-            {'O', 'X', ' '},
-            {'O', 'X', 'X'}
-        };
-        // Act
-        String result = checkVictory(board);
-        // Assert
-        assertEquals("O", result, "Se esperaba 'O' como ganador pero se obtuvo '" + result + "'");
-    }
-
-    @Test
-    void jugadorGanaConLineaDiagonal() {
-        // Arrange
-        char[][] board = {
-            {'X', 'O', 'O'},
-            {' ', 'X', ' '},
-            {'O', ' ', 'X'}
-        };
-        // Act
-        String result = checkVictory(board);
-        // Assert
-        assertEquals("X", result, "Se esperaba 'X' como ganador pero se obtuvo '" + result + "'");
+        return false;
     }
 }
