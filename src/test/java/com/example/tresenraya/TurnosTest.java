@@ -31,4 +31,19 @@ public class TurnosTest {
         // 3. Verificación o Assert
         assertEquals(resultadoEsperado, resultadoActual, "Después de X debe ser O");
     }
+
+    @Test
+    void despuesDeODebeSerX() {
+        // 1. Preparación de la prueba
+        Turnos turnos = new Turnos();
+
+        // 2. Lógica de la prueba
+        turnos.obtenerJugadorActual(); // Primer turno (X)
+        turnos.obtenerJugadorActual(); // Segundo turno (O)
+        Ficha resultadoActual = turnos.obtenerJugadorActual(); // Siguiente turno
+        Ficha resultadoEsperado = Ficha.X;
+
+        // 3. Verificación o Assert
+        assertEquals(resultadoEsperado, resultadoActual, "Después de O debe ser X");
+    }
 }
