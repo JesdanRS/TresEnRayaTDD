@@ -5,21 +5,23 @@ public class Turnos {
     // Cambiar el valor inicial a Ficha.O
     private Ficha jugadorActual = Ficha.X;
 
-    // Para hacer fallar el segundo test (despuesDeXDebeSerO):
-    // Modificar el método para que siempre retorne Ficha.X
     public Ficha obtenerJugadorActual() {
         // Implementación correcta que hace pasar todos los tests:
         Ficha jugadorARetornar = jugadorActual;
-        jugadorActual = (jugadorActual == Ficha.X) ? Ficha.O : Ficha.X;
+        alternarJugador();
         return jugadorARetornar;
 
         // Implementación que hace fallar el segundo test:
         // return Ficha.X;
-
+        //AL cambiar el return, igual fallará la alternancia de turnos.(el ultimo test)
         // Implementación que hace fallar el tercer test:
         /*if (jugadorActual == Ficha.X) {
             jugadorActual = Ficha.O;
         }
         return jugadorActual;*/
+    }
+
+    private void alternarJugador() {
+        jugadorActual = (jugadorActual == Ficha.X) ? Ficha.O : Ficha.X;
     }
 }
