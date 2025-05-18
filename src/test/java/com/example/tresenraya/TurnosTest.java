@@ -46,4 +46,17 @@ public class TurnosTest {
         // 3. Verificación o Assert
         assertEquals(resultadoEsperado, resultadoActual, "Después de O debe ser X");
     }
+
+    @Test
+    void alternanciaMultipleDebeSerCorrecta() {
+        // 1. Preparación de la prueba
+        Turnos turnos = new Turnos();
+
+        // 2. Lógica de la prueba
+        Ficha[] esperado = {Ficha.X, Ficha.O, Ficha.X, Ficha.O, Ficha.X};
+        for (int i = 0; i < esperado.length; i++) {
+            Ficha resultado = turnos.obtenerJugadorActual();
+            assertEquals(esperado[i], resultado, "En la llamada " + (i+1) + " debe ser " + esperado[i]);
+        }
+    }
 }
