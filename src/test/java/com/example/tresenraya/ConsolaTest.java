@@ -56,8 +56,34 @@ public class ConsolaTest {
         // Restauramos la salida estándar
         System.setOut(salidaOriginal);
     }
-    
-   
+
+    /**
+     * Prueba 2: Verificar que se puede ingresar coordenadas correctamente
+     * 
+     * Esta prueba simula la entrada del usuario y verifica que el método
+     * solicitarMovimiento() interpreta correctamente las coordenadas
+     */
+    @Test
+    void testSolicitarMovimientoValido() {
+        // Simulamos la entrada del usuario "1,2"
+        String entradaSimulada = "1,2\n";
+        ByteArrayInputStream entradaConsola = new ByteArrayInputStream(entradaSimulada.getBytes());
+        System.setIn(entradaConsola);
+        
+        // Creamos la consola con la entrada simulada
+        Consola consola = new Consola(tablero);
+        
+        // Solicitamos el movimiento
+        int[] coordenadas = consola.solicitarMovimiento();
+        
+        // Verificamos que las coordenadas son las esperadas
+        assertEquals(1, coordenadas[0], "La coordenada X debe ser 1");
+        assertEquals(2, coordenadas[1], "La coordenada Y debe ser 2");
+        
+        // Restauramos la entrada estándar
+        System.setIn(System.in);
+        System.setOut(salidaOriginal);
+    }
     
     /**
      * Método auxiliar para contar ocurrencias de una subcadena en una cadena
