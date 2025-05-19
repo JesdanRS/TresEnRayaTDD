@@ -2,6 +2,7 @@ package com.example.tresenraya;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+//import org.junit.jupiter.api.BeforeEach;
 
 public class TurnosTest {
 
@@ -59,4 +60,44 @@ public class TurnosTest {
             assertEquals(esperado[i], resultado, "En la llamada " + (i+1) + " debe ser " + esperado[i]);
         }
     }
+    //--------------------COMPARACION CON IA CHATGPT--------------------
+    /*private Turnos turnos;
+
+    @BeforeEach
+    void setUp() {
+        turnos = new Turnos();
+    }
+
+    @Test
+    public void testPrimerTurnoEsX() {
+        // Al iniciar, el siguiente turno debe ser 'X'
+        assertEquals('X', turnos.obtenerSiguienteTurno());
+    }
+
+    @Test
+    public void testTurnoDespuesDeXEsMas() {
+        turnos.registrarTurno('X');
+        assertEquals('O', turnos.obtenerSiguienteTurno());
+    }
+
+    @Test
+    public void testTurnoDespuesDeMasEsX() {
+        turnos.registrarTurno('O');
+        assertEquals('X', turnos.obtenerSiguienteTurno());
+    }
+
+    @Test
+    public void testJugadorInvalidoLanzaExcepcion() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            turnos.registrarTurno('Z');
+        });
+        assertEquals("Jugador inválido. Solo se permite 'X' o 'O'", exception.getMessage());
+    }*/
+
+    /*
+    COMPARACIÓN ENTRE LÓGICA COMENTADA Y ACTUAL:
+    - Lógica actual: usa enum Ficha y alternancia automática de turnos, menos flexible, ideal para alternancia fija.
+    - Lógica IA: usa char ('X', '+'), registro explícito del turno anterior, permite validaciones y mayor control sobre los turnos.
+    - La lógica de IA es más adecuada si se requiere validar el jugador o modificar la secuencia de turnos.
+    */
 }
