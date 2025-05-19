@@ -59,17 +59,16 @@ class TicTacToeVictoryTest  {
     // @Test
     // public void testVictoriaHorizontal() {
     //     // Arrange
-    //     Tablero tablero = new Tablero(3, 3); // Tablero de 3x3
-    //     Jugador jugador = new Jugador("X");
+    //     tablero = new int[3][3]; // Initialize 3x3 board
+    //     int jugador = 1; // Using integer 1 to represent player X
         
     //     // Act - Colocar piezas del jugador en una fila horizontal completa
-    //     tablero.colocarPieza(0, 0, jugador); // Primera fila, primera columna
-    //     tablero.colocarPieza(0, 1, jugador); // Primera fila, segunda columna
-    //     tablero.colocarPieza(0, 2, jugador); // Primera fila, tercera columna
+    //     tablero[0][0] = jugador; // Primera fila, primera columna
+    //     tablero[0][1] = jugador; // Primera fila, segunda columna
+    //     tablero[0][2] = jugador; // Primera fila, tercera columna
         
     //     // Assert - Verificar que el jugador ha ganado
-    //     assertTrue("El jugador debería ganar con una línea horizontal completa", 
-    //                tablero.verificarVictoria(jugador));
+    //     assertTrue(juegoLogica.hayGanador(tablero, jugador), "El jugador debería ganar con una línea horizontal completa");
     // }
 
     @Test
@@ -80,20 +79,19 @@ class TicTacToeVictoryTest  {
         assertTrue(juegoLogica.hayGanador(tablero, 1));
         assertFalse(juegoLogica.hayGanador(tablero, 2));
     }
-
+    
+    // @Test
     // public void testVictoriaVertical() {
     //     // Arrange
-    //     Tablero tablero = new Tablero(3, 3); // Tablero de 3x3
-    //     Jugador jugador = new Jugador("X");
+    //     tablero = new int[3][3]; // Initialize 3x3 board
+    //     int jugador = 1; // Using integer 1 to represent player X
         
     //     // Act - Colocar piezas del jugador en una columna vertical completa
-    //     tablero.colocarPieza(0, 0, jugador); // Primera fila, primera columna
-    //     tablero.colocarPieza(1, 0, jugador); // Segunda fila, primera columna
-    //     tablero.colocarPieza(2, 0, jugador); // Tercera fila, primera columna
-        
+    //     tablero[0][0] = jugador; // Primera fila, primera columna
+    //     tablero[0][1] = jugador; // Primera fila, segunda columna
+    //     tablero[0][2] = jugador; // Primera fila, tercera columna
     //     // Assert - Verificar que el jugador ha ganado
-    //     assertTrue("El jugador debería ganar con una línea vertical completa", 
-    //                tablero.verificarVictoria(jugador));
+    //     assertTrue(juegoLogica.hayGanador(tablero, jugador), "El jugador debería ganar con una línea Vertical completa");
     // }
 
     @Test
@@ -116,34 +114,32 @@ class TicTacToeVictoryTest  {
 
     // @Test
     // public void testVictoriaDiagonalPrincipal() {
-    //     // Arrange
-    //     Tablero tablero = new Tablero(3, 3); // Tablero de 3x3
-    //     Jugador jugador = new Jugador("X");
-        
-    //     // Act - Colocar piezas del jugador en la diagonal principal
-    //     tablero.colocarPieza(0, 0, jugador); // Esquina superior izquierda
-    //     tablero.colocarPieza(1, 1, jugador); // Centro
-    //     tablero.colocarPieza(2, 2, jugador); // Esquina inferior derecha
-        
-    //     // Assert - Verificar que el jugador ha ganado
-    //     assertTrue("El jugador debería ganar con una diagonal principal completa", 
-    //                tablero.verificarVictoria(jugador));
+    //        // Arrange
+    //        tablero = new int[3][3]; // Initialize 3x3 board
+    //        int jugador = 1; // Using integer 1 to represent player X
+           
+    //        // Act - Colocar piezas del jugador en una columna vertical completa
+    //        tablero[0][0] = jugador; // Primera fila, primera columna
+    //        tablero[1][1] = jugador; // Primera fila, segunda columna
+    //        tablero[2][2] = jugador; // Primera fila, tercera columna
+    //        // Assert - Verificar que el jugador ha ganado
+    //        assertTrue(juegoLogica.hayGanador(tablero, jugador), "El jugador debería ganar con una línea Vertical completa");
+     
     // }
     
     // @Test
     // public void testVictoriaDiagonalSecundaria() {
-    //     // Arrange
-    //     Tablero tablero = new Tablero(3, 3);
-    //     Jugador jugador = new Jugador("X");
-        
-    //     // Act - Colocar piezas del jugador en la diagonal secundaria
-    //     tablero.colocarPieza(0, 2, jugador); // Esquina superior derecha
-    //     tablero.colocarPieza(1, 1, jugador); // Centro
-    //     tablero.colocarPieza(2, 0, jugador); // Esquina inferior izquierda
-        
-    //     // Assert - Verificar que el jugador ha ganado
-    //     assertTrue("El jugador debería ganar con una diagonal secundaria completa", 
-    //                tablero.verificarVictoria(jugador));
+    //          // Arrange
+    //          tablero = new int[3][3]; // Initialize 3x3 board
+    //          int jugador = 1; // Using integer 1 to represent player X
+             
+    //          // Act - Colocar piezas del jugador en una columna vertical completa
+    //          tablero[0][2] = jugador; // Primera fila, primera columna
+    //          tablero[1][1] = jugador; // Primera fila, segunda columna
+    //          tablero[2][0] = jugador; // Primera fila, tercera columna
+    //          // Assert - Verificar que el jugador ha ganado
+    //          assertTrue(juegoLogica.hayGanador(tablero, jugador), "El jugador debería ganar con una línea Vertical completa");
+       
     // }
 
 }
