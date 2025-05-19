@@ -52,7 +52,7 @@ class TicTacToeVictoryTest  {
         for (int i = 0; i < tamanoTablero; i++) {
             tablero[0][i] = 1; // Jugador 1 ocupa toda la primera fila
         }
-        assertTrue(juegoLogica.hayGanador(tablero, 2));
+        assertTrue(juegoLogica.hayGanador(tablero, 1));
         assertFalse(juegoLogica.hayGanador(tablero, 2));
     }
 

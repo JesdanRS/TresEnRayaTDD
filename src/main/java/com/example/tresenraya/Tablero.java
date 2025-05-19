@@ -47,13 +47,13 @@ public class Tablero {
      * @throws IllegalArgumentException si alguna coordenada está fuera del tablero
      */
     private void validarCoordenadas(int x, int y) {
-        // if (x < 0 || x >= TAMANIO) {
-        //     throw new IllegalArgumentException("Posición X fuera del tablero");
-        // }
+        if (x < 0 || x >= TAMANIO) {
+            throw new IllegalArgumentException("Posición X fuera del tablero");
+        }
         
-        // if (y < 0 || y >= TAMANIO) {
-        //     throw new IllegalArgumentException("Posición Y fuera del tablero");
-        // }
+        if (y < 0 || y >= TAMANIO) {
+            throw new IllegalArgumentException("Posición Y fuera del tablero");
+        }
     }
     
     /**
