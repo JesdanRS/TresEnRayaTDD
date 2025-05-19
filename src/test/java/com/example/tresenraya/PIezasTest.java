@@ -5,11 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Pruebas para el Requerimiento 1:
- * Una pieza puede estar colocada en un espacio de un tablero 3x3
- * 
- * Estas pruebas verifican que no se puedan colocar fichas fuera del tablero
- * o en posiciones ya ocupadas.
+ * Pruebas para el Requerimiento 1
  */
 public class PIezasTest {
     
@@ -18,22 +14,14 @@ public class PIezasTest {
     
     @BeforeEach
     void setUp() {
-        // Antes de cada prueba, creamos un tablero nuevo y vacío
-        // Esto es como limpiar la pizarra antes de empezar cada ejercicio
         tablero = new Tablero();
     }
 
     /**
      * Prueba 1: Cuando una pieza está fuera del eje X, entonces se debe lanzar una excepción
-     * 
-     * Esta prueba verifica que no se pueda colocar una ficha fuera del límite horizontal del tablero
      */
     @Test
     void testPiezaFueraDelEjeX() {
-        // Intentamos colocar una ficha en una posición que no existe (fuera del tablero)
-        
-        // IMPORTANTE: Si cambias el 3 por un número entre 0 y 2, la prueba fallará
-        // porque esas posiciones sí existen en el tablero
         
         // Verificamos que se lance una excepción cuando X está fuera del tablero
         boolean seHaLanzadoExcepcion = false;
@@ -67,16 +55,9 @@ public class PIezasTest {
     
     /**
      * Prueba 2: Cuando una pieza está fuera del eje Y, entonces se debe lanzar una excepción
-     * 
-     * Esta prueba verifica que no se pueda colocar una ficha fuera del límite vertical del tablero
      */
     @Test
     void testPiezaFueraDelEjeY() {
-        // Intentamos colocar una ficha en una posición que no existe (fuera del tablero)
-        
-        // IMPORTANTE: Si cambias el 3 por un número entre 0 y 2, la prueba fallará
-        // porque esas posiciones sí existen en el tablero
-        
         // Verificamos que se lance una excepción cuando Y está fuera del tablero
         boolean seHaLanzadoExcepcion = false;
         try {
@@ -109,21 +90,16 @@ public class PIezasTest {
     
     /**
      * Prueba 3: Cuando una pieza esté en un lugar ya ocupado, se debe lanzar una excepción
-     * 
-     * Esta prueba verifica que no se pueda colocar una ficha donde ya hay otra ficha
      */
     @Test
     void testPiezaEnLugarOcupado() {
         // Primero colocamos una ficha X en la posición (1,1) - el centro del tablero
         tablero.colocarFicha(1, 1, Ficha.X);
         
-        // IMPORTANTE: Si cambias las coordenadas (1,1) por otras donde no hay ficha,
-        // como (0,0) o (2,2), la prueba fallará porque esas posiciones están vacías
-        
         // Verificamos que se lance una excepción al intentar colocar en posición ocupada
         boolean seHaLanzadoExcepcion = false;
         try {
-            tablero.colocarFicha(1, 1, Ficha.O); // Intentamos poner una O donde ya hay una X
+            tablero.colocarFicha(1, 1, Ficha.O); 
         } catch (IllegalArgumentException e) {
             seHaLanzadoExcepcion = true;
         }
