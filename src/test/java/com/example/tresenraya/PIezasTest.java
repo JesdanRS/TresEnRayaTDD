@@ -49,6 +49,23 @@ public class PIezasTest {
     }
     
     /**
+     * Prueba 1 de Chatgpt
+     * 
+    @Test
+    void testPiezaFueraDelEjeXAlternativo() {
+        // Actuar y Verificar
+        // IMPORTANTE: Si cambias el 3 por un número entre 0 y 2, la prueba fallará
+        // porque esas posiciones sí existen en el tablero
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            tablero.colocarFicha(3, 0, Ficha.X); // Coordenada X fuera del límite
+        });
+        
+        // Verificar el mensaje de error
+        assertEquals("Posición X fuera del tablero", exception.getMessage());
+    }
+    */
+    
+    /**
      * Prueba 2: Cuando una pieza está fuera del eje Y, entonces se debe lanzar una excepción
      * 
      * Esta prueba verifica que no se pueda colocar una ficha fuera del límite vertical del tablero
@@ -72,6 +89,23 @@ public class PIezasTest {
         assertTrue(seHaLanzadoExcepcion, 
                 "Debe lanzarse una excepción cuando la posición Y está fuera del tablero");
     }
+    
+    /**
+     * Prueba 2 de Chatgpt
+     * 
+    @Test
+    void testPiezaFueraDelEjeYAlternativo() {
+        // Actuar y Verificar
+        // IMPORTANTE: Si cambias el 3 por un número entre 0 y 2, la prueba fallará
+        // porque esas posiciones sí existen en el tablero
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            tablero.colocarFicha(0, 3, Ficha.X); // Coordenada Y fuera del límite
+        });
+        
+        // Verificar el mensaje de error
+        assertEquals("Posición Y fuera del tablero", exception.getMessage());
+    }
+    */
     
     /**
      * Prueba 3: Cuando una pieza esté en un lugar ya ocupado, se debe lanzar una excepción
@@ -98,4 +132,25 @@ public class PIezasTest {
         assertTrue(seHaLanzadoExcepcion, 
                 "Debe lanzarse una excepción cuando la posición ya está ocupada");
     }
+    
+    /**
+     * Prueba 3 de Chatgpt
+     * 
+    @Test
+    void testPiezaEnLugarOcupadoAlternativo() {
+        // Preparar
+        tablero.colocarFicha(1, 1, Ficha.X); // Colocamos una ficha en el centro
+        
+        // Actuar y Verificar
+        // IMPORTANTE: Si cambias las coordenadas (1,1) por otras donde no hay ficha,
+        // como (0,0) o (2,2), la prueba fallará porque esas posiciones están vacías
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            tablero.colocarFicha(1, 1, Ficha.O); // Intentamos colocar otra ficha en el mismo lugar
+        });
+        
+        // Verificar el mensaje de error
+        assertEquals("Posición ya ocupada", exception.getMessage());
+    }
+    */
+    
 }
