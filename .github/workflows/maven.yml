@@ -2,9 +2,9 @@ name: Java CI con Maven
 
 on:
   push:
-    branches: [ main, Requerimientos3, MergeBranch ]
+    branches: [ main, Requerimientos3, MergeBranch, Requerimiento1, Turnos ]
   pull_request:
-    branches: [ main, Requerimientos3, MergeBranch ]
+    branches: [ main, Requerimientos3, MergeBranch, Requerimiento1, Turnos ]
   workflow_dispatch:
 
 permissions:

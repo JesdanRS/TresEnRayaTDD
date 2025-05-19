@@ -67,4 +67,16 @@ public class Tablero {
             throw new IllegalArgumentException("Posición ya ocupada");
         }
     }
+
+    /**
+     * Obtiene la ficha en la posición especificada
+     * @param x Coordenada X (0-2)
+     * @param y Coordenada Y (0-2)
+     * @return La ficha en la posición especificada
+     * @throws IllegalArgumentException si la posición está fuera del tablero
+     */
+    public Ficha obtenerFicha(int x, int y) {
+        validarCoordenadas(x, y);
+        return casillas[x][y];
+    }
 }

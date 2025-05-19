@@ -27,6 +27,26 @@ class TicTacToeVictoryTest  {
         assertFalse(juegoLogica.hayGanador(tablero, 2), "Debería regresar false si no hay ganador");
     }
 
+
+    // * Respuesta de ChatGPT
+//     @Test
+// void sinGanador_conTableroParcialmenteOcupado() {
+//     // Given: un tablero con dos marcas del Jugador 1 sin formar línea ganadora
+//     tablero[0][0] = 1;
+//     tablero[1][1] = 1;
+
+//     // When: consulto si alguno de los jugadores ha ganado
+//     boolean ganaJugador1 = juegoLogica.hayGanador(tablero, 2);
+//     boolean ganaJugador2 = juegoLogica.hayGanador(tablero, 1);
+
+//     // Then: ninguno debe resultar ganador
+//     assertAll(
+//         () -> assertFalse(ganaJugador1, "Jugador 1 no debería ser declarado ganador"),
+//         () -> assertFalse(ganaJugador2, "Jugador 2 no debería ser declarado ganador")
+//     );
+// }
+
+
     @Test
     void testJugadorGanaConLineaHorizontal() {
         for (int i = 0; i < tamanoTablero; i++) {
@@ -36,6 +56,21 @@ class TicTacToeVictoryTest  {
         assertFalse(juegoLogica.hayGanador(tablero, 2));
     }
 
+    // @Test
+    // public void testVictoriaHorizontal() {
+    //     // Arrange
+    //     tablero = new int[3][3]; // Initialize 3x3 board
+    //     int jugador = 1; // Using integer 1 to represent player X
+        
+    //     // Act - Colocar piezas del jugador en una fila horizontal completa
+    //     tablero[0][0] = jugador; // Primera fila, primera columna
+    //     tablero[0][1] = jugador; // Primera fila, segunda columna
+    //     tablero[0][2] = jugador; // Primera fila, tercera columna
+        
+    //     // Assert - Verificar que el jugador ha ganado
+    //     assertTrue(juegoLogica.hayGanador(tablero, jugador), "El jugador debería ganar con una línea horizontal completa");
+    // }
+
     @Test
     void testJugadorGanaConLineaVertical() {
         for (int i = 0; i < tamanoTablero; i++) {
@@ -44,6 +79,20 @@ class TicTacToeVictoryTest  {
         assertTrue(juegoLogica.hayGanador(tablero, 1));
         assertFalse(juegoLogica.hayGanador(tablero, 2));
     }
+    
+    // @Test
+    // public void testVictoriaVertical() {
+    //     // Arrange
+    //     tablero = new int[3][3]; // Initialize 3x3 board
+    //     int jugador = 1; // Using integer 1 to represent player X
+        
+    //     // Act - Colocar piezas del jugador en una columna vertical completa
+    //     tablero[0][0] = jugador; // Primera fila, primera columna
+    //     tablero[0][1] = jugador; // Primera fila, segunda columna
+    //     tablero[0][2] = jugador; // Primera fila, tercera columna
+    //     // Assert - Verificar que el jugador ha ganado
+    //     assertTrue(juegoLogica.hayGanador(tablero, jugador), "El jugador debería ganar con una línea Vertical completa");
+    // }
 
     @Test
     void testJugadorGanaConDiagonalPrincipal() {
@@ -63,26 +112,34 @@ class TicTacToeVictoryTest  {
         assertFalse(juegoLogica.hayGanador(tablero, 2));
     }
 
-    /* 
-    ! CODIGO MINIMO PARA QUE PASEN LAS PRUEBAS
-    private boolean hayGanador(int[][] tablero, int jugador) {
-        int tamano = tablero.length;
+    // @Test
+    // public void testVictoriaDiagonalPrincipal() {
+    //        // Arrange
+    //        tablero = new int[3][3]; // Initialize 3x3 board
+    //        int jugador = 1; // Using integer 1 to represent player X
+           
+    //        // Act - Colocar piezas del jugador en una columna vertical completa
+    //        tablero[0][0] = jugador; // Primera fila, primera columna
+    //        tablero[1][1] = jugador; // Primera fila, segunda columna
+    //        tablero[2][2] = jugador; // Primera fila, tercera columna
+    //        // Assert - Verificar que el jugador ha ganado
+    //        assertTrue(juegoLogica.hayGanador(tablero, jugador), "El jugador debería ganar con una línea Vertical completa");
+     
+    // }
+    
+    // @Test
+    // public void testVictoriaDiagonalSecundaria() {
+    //          // Arrange
+    //          tablero = new int[3][3]; // Initialize 3x3 board
+    //          int jugador = 1; // Using integer 1 to represent player X
+             
+    //          // Act - Colocar piezas del jugador en una columna vertical completa
+    //          tablero[0][2] = jugador; // Primera fila, primera columna
+    //          tablero[1][1] = jugador; // Primera fila, segunda columna
+    //          tablero[2][0] = jugador; // Primera fila, tercera columna
+    //          // Assert - Verificar que el jugador ha ganado
+    //          assertTrue(juegoLogica.hayGanador(tablero, jugador), "El jugador debería ganar con una línea Vertical completa");
+       
+    // }
 
-        // Verificar filas y columnas
-        for (int i = 0; i < tamano; i++) {
-            if ((tablero[i][0] == jugador && tablero[i][1] == jugador && tablero[i][2] == jugador) ||
-                (tablero[0][i] == jugador && tablero[1][i] == jugador && tablero[2][i] == jugador)) {
-                return true;
-            }
-        }
-
-        // Verificar diagonales
-        if ((tablero[0][0] == jugador && tablero[1][1] == jugador && tablero[2][2] == jugador) ||
-            (tablero[0][2] == jugador && tablero[1][1] == jugador && tablero[2][0] == jugador)) {
-            return true;
-        }
-
-        return false;
-    }
-    */
 }
