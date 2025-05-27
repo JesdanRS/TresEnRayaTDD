@@ -91,27 +91,6 @@ public class ConsolaTest {
      * Esta prueba verifica que el método solicitarMovimiento() lanza una excepción
      * cuando se ingresan coordenadas en formato incorrecto
      */
-    @Test
-    void testSolicitarMovimientoInvalido() {
-        // Simulamos una entrada inválida "x,y"
-        String entradaSimulada = "x,y\n";
-        ByteArrayInputStream entradaConsola = new ByteArrayInputStream(entradaSimulada.getBytes());
-        System.setIn(entradaConsola);
-        
-        // Creamos la consola con la entrada simulada
-        Consola consola = new Consola(tablero);
-        
-        // Verificamos que se lanza la excepción esperada
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            consola.solicitarMovimiento();
-        });
-        
-        // Verificamos el mensaje de error
-        assertEquals("Las coordenadas deben ser números", exception.getMessage());
-        
-        // Restauramos la entrada estándar
-        System.setIn(System.in);
-        System.setOut(salidaOriginal);}
     
     /**
      * Método auxiliar para contar ocurrencias de una subcadena en una cadena

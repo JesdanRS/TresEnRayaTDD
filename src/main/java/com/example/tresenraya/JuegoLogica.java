@@ -7,7 +7,7 @@ public class JuegoLogica {
 
         // Verificar filas
         for (int i = 0; i < tamano; i++) {
-            boolean filaCompleta = true;
+            boolean filaCompleta = false;
             for (int j = 0; j < tamano; j++) {
                 if (tablero[i][j] != jugador) {
                     filaCompleta = false;

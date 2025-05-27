@@ -26,6 +26,7 @@ public class Consola {
         sb.append("-------------\n");
         System.out.print(sb.toString());
     }
+ //   return new int[]{0,0}; 
 
     public int[] solicitarMovimiento() {
         System.out.print("Ingrese las coordenadas (x,y): ");
